@@ -6,10 +6,15 @@
 // @author       You
 // @match        http://*/*
 // @grant        none
+// @require      http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
 (function() {
     'use strict';
 
     // Your code here...
+    var $ = window.jQuery;
+    $(document).ready(function() {
+        alert('WINNING');
+    });
 })();
