@@ -41,6 +41,36 @@
       $(s).val(ampm);
     }
 
+    function createShifts(count) {
+      var t;
+      $("td")
+        .filter(function(index) {
+          return (
+            $(this)
+              .text()
+              .replace(/\u00A0/g, "") === "Total Hrs"
+          );
+        })
+        .each(function() {
+          $(this)
+            .closest("table")
+            .each(function() {
+              var z = $(this).find($('a:contains("Default")'));
+              z.click().delay(2000);
+
+              // https://api.jquery.com/find
+              var x = $(this).find($('a:contains("Delete")'));
+              var y = $(this).find($('a:contains("Add New")'));
+              var delCount = x.length;
+              while (delCount <= count) {
+                y.click();
+                delCount += 1;
+              }
+            });
+        });
+    }
+    // createShifts(3);
+
     var day;
     var amPmEnum = {
       AM: 0,
